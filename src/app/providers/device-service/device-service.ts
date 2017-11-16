@@ -183,14 +183,13 @@ export class DeviceService {
   
   private _LogMotionEvent(newDevice: DeviceModel) {
 
-    console.log("you are in _LogMotionEvent");
     var cameraid = newDevice.id;
     var cameraname = newDevice.name;
     var eventdate = newDevice.LastEvent.startTime;
     var image = newDevice.snapshotURL;  
       const createMotionEvent = gql`
-        mutation createMotionEvent ($cameraId: String!, $cameraName: String!, $eventDate: DateTime!, $image: String!) {
-          createMotionEvent(cameraId: $cameraId, cameraName: $cameraName, eventDate: $eventDate, image: $image) {
+        mutation createMotionEvent ($cameraid: String!, $cameraName: String!, $eventDate: DateTime!, $image: String!) {
+          createMotionEvent(cameraid: $cameraid, cameraName: $cameraName, eventDate: $eventDate, image: $image) {
             id
           }
         }
@@ -198,7 +197,7 @@ export class DeviceService {
       this.apollo.mutate({
         mutation: createMotionEvent,
         variables: {
-          cameraId: cameraid,
+          cameraid: cameraid,
           cameraName: cameraname,
           eventDate: eventdate,
           image: image

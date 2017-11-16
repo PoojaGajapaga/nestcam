@@ -16,8 +16,8 @@ export class NestcamComponent implements OnInit {
   isStreaming: boolean;
   cameraName: string;
   selectedRows: Array<any>;  
-  contextMenu: MenuItem[]; 
-  lastestEvents = [];
+ 
+  Events = [];
   
 
   constructor(private apollo: Apollo, private _deviceService: DeviceService) {
@@ -67,7 +67,7 @@ export class NestcamComponent implements OnInit {
     query allMotionEvents {
       allMotionEvents {
           id
-          cameraId
+          cameraid
           cameraName
           eventDate
           image
@@ -80,7 +80,7 @@ export class NestcamComponent implements OnInit {
       pollInterval: 100
 
     }).subscribe(({ data, loading }: any) => {
-      this.lastestEvents = data.allMotionEvents;    
+      this.Events = data.allMotionEvents;    
     });
 
   }
