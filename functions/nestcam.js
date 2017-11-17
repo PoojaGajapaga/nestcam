@@ -66,7 +66,7 @@ function nestcamOn(intent, session, callback) {
     const shouldEndSession = true;
     let speechOutput = "Initializing video feed.";
 
-    var client = require('graphql-client')({ url: 'https://api.graph.cool/simple/v1/cj7wkkx1h0hm70145q6pn99i9' });
+    var client = require('graphql-client')({ url: 'https://api.graph.cool/simple/v1/cj7wkwiyj0gpx01688nxb75xb' });
     
         client.query(`
             mutation {
